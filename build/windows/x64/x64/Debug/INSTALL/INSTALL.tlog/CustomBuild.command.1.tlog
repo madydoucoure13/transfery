@@ -1,0 +1,10 @@
+^C:\PROJECTS\FERE-SIMPLE\BUILD\WINDOWS\X64\CMAKEFILES\F5440E94E35620DA61C560FC9385ADDF\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
