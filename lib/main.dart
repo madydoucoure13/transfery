@@ -1,3 +1,4 @@
+import 'package:transfery/email_otp_page.dart';
 import 'package:transfery/my_home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -10,9 +11,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
-    );
+    return MaterialApp(debugShowCheckedModeBanner: false, home: EmailInputPage()
+        // HomePage(),
+        );
   }
 }

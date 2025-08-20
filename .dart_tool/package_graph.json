@@ -9,8 +9,10 @@
       "dependencies": [
         "cupertino_icons",
         "flutter",
+        "http",
         "intl",
         "path_provider",
+        "pin_code_fields",
         "shared_preferences",
         "sqflite",
         "sqflite_common_ffi",
@@ -50,6 +52,23 @@
         "stream_channel",
         "test_api",
         "vector_math"
+      ]
+    },
+    {
+      "name": "pin_code_fields",
+      "version": "8.0.1",
+      "dependencies": [
+        "flutter"
+      ]
+    },
+    {
+      "name": "http",
+      "version": "1.5.0",
+      "dependencies": [
+        "async",
+        "http_parser",
+        "meta",
+        "web"
       ]
     },
     {
@@ -228,6 +247,29 @@
       ]
     },
     {
+      "name": "web",
+      "version": "1.1.1",
+      "dependencies": []
+    },
+    {
+      "name": "http_parser",
+      "version": "4.1.2",
+      "dependencies": [
+        "collection",
+        "source_span",
+        "string_scanner",
+        "typed_data"
+      ]
+    },
+    {
+      "name": "async",
+      "version": "2.13.0",
+      "dependencies": [
+        "collection",
+        "meta"
+      ]
+    },
+    {
       "name": "shared_preferences_windows",
       "version": "2.4.1",
       "dependencies": [
@@ -291,11 +333,6 @@
       "dependencies": [
         "collection"
       ]
-    },
-    {
-      "name": "web",
-      "version": "1.1.1",
-      "dependencies": []
     },
     {
       "name": "ffi",
@@ -410,14 +447,6 @@
       "name": "characters",
       "version": "1.4.0",
       "dependencies": []
-    },
-    {
-      "name": "async",
-      "version": "2.13.0",
-      "dependencies": [
-        "collection",
-        "meta"
-      ]
     },
     {
       "name": "leak_tracker_testing",

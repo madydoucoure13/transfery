@@ -1,100 +1,70 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-class EmailOtpAuthPage extends StatefulWidget {
-  const EmailOtpAuthPage({Key? key}) : super(key: key);
+import 'package:transfery/otp_input_page.dart';
 
+class EmailInputPage extends StatefulWidget {
   @override
-  _EmailOtpAuthPageState createState() => _EmailOtpAuthPageState();
+  State<EmailInputPage> createState() => _EmailInputPageState();
 }
 
-class _EmailOtpAuthPageState extends State<EmailOtpAuthPage> {
+class _EmailInputPageState extends State<EmailInputPage> {
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _otpController = TextEditingController();
+  bool loading = false;
 
-  String? _generatedOtp;
-  bool _otpSent = false;
+  Future<void> sendOTP() async {
+    setState(() => loading = true);
 
-  // Générer un OTP aléatoire à 6 chiffres
-  String _generateOtp() {
-    final random = Random();
-    return (100000 + random.nextInt(900000)).toString();
-  }
+    try {
+      // Appel API pour générer et envoyer l’OTP
+      var response = await http.post(
+        Uri.parse("https://ton-api.com/send-otp"),
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({"email": _emailController.text}),
+      );
 
-  // Simuler l'envoi de l'OTP par email
-  void _sendOtp() {
-    final email = _emailController.text.trim();
-    if (email.isEmpty || !email.contains('@')) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text("Email invalide")));
-      return;
-    }
-
-    _generatedOtp = _generateOtp();
-    setState(() {
-      _otpSent = true;
-    });
-
-    // Dans une vraie app, ici tu enverrais l'OTP via backend / email
-    print("OTP envoyé à $email : $_generatedOtp");
-    ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("OTP envoyé à votre email")));
-  }
-
-  void _verifyOtp() {
-    if (_otpController.text.trim() == _generatedOtp) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text("OTP correct !")));
-      // Naviguer vers la page suivante
-    } else {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text("OTP incorrect")));
+      if (response.statusCode == 200) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => OtpPage(email: _emailController.text),
+          ),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Erreur lors de l’envoi de l’OTP")),
+        );
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Impossible de contacter le serveur")),
+      );
+    } finally {
+      setState(() => loading = false);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Authentification par OTP")),
+      appBar: AppBar(title: const Text("Connexion par email")),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (!_otpSent) ...[
-              TextField(
-                controller: _emailController,
-                keyboardType: TextInputType.emailAddress,
-                decoration: const InputDecoration(
-                  labelText: "Email",
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: _sendOtp,
-                child: const Text("Envoyer OTP"),
-              ),
-            ] else ...[
-              Text(
-                "Un code OTP a été envoyé à ${_emailController.text}",
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 20),
-              TextField(
-                controller: _otpController,
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
-                  labelText: "Entrez le OTP",
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: _verifyOtp,
-                child: const Text("Valider OTP"),
-              ),
-            ]
+            TextField(
+              controller: _emailController,
+              decoration: const InputDecoration(labelText: "Email"),
+              keyboardType: TextInputType.emailAddress,
+            ),
+            const SizedBox(height: 20),
+            loading
+                ? const CircularProgressIndicator()
+                : ElevatedButton(
+                    onPressed: sendOTP,
+                    child: const Text("Envoyer OTP"),
+                  ),
           ],
         ),
       ),
