@@ -1,5 +1,5 @@
-import 'package:fere/body_page.dart';
-import 'package:fere/database_helper.dart';
+import 'package:transfery/body_page.dart';
+import 'package:transfery/database_helper.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 3, vsync: this);
   }
 
   @override
@@ -42,10 +42,10 @@ class _HomePageState extends State<HomePage>
         bottom: TabBar(
           controller: _tabController,
           tabs: const [
-            Tab(text: 'Articles'),
-            Tab(text: 'Inventaires'),
-            Tab(text: 'Achats'),
-            Tab(text: 'Ventes'),
+            Tab(text: 'Comptes'),
+            // Tab(text: 'Comptes'),
+            Tab(text: 'Entrés'),
+            Tab(text: 'Sorties'),
           ],
         ),
       ),
@@ -53,22 +53,22 @@ class _HomePageState extends State<HomePage>
         controller: _tabController,
         children: [
           BodyPage(
-            addArticleVisibility: false,
-            title: "Ajouter un article",
+            addTransfertVisibility: false,
+            title: "Ajouter un compte",
             colonnesArg: true,
             typeArg: -1,
-            groupArg: const ['libelle'],
+            groupArg: const ['name'],
           ),
+          // BodyPage(
+          //   title: "Ajouter un article",
+          //   typeArg: 0,
+          // ),
           BodyPage(
-            title: "Ajouter un article",
-            typeArg: 0,
-          ),
-          BodyPage(
-            title: "Ajouter un achat",
+            title: "Ajouter une entrée",
             typeArg: 1,
           ),
           BodyPage(
-            title: "Ajouter une vente",
+            title: "Ajouter une sortie",
             typeArg: 2,
           ),
         ],

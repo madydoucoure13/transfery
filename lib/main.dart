@@ -1,4 +1,4 @@
-import 'package:fere/my_home_page.dart';
+import 'package:transfery/my_home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {

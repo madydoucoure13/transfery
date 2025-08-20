@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\projects\fere-simple\windows\flutter\ephemeral\cpp_client_wrapper\core_implementations.cc">
+    <ClCompile Include="C:\projects\transfery\windows\flutter\ephemeral\cpp_client_wrapper\core_implementations.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\projects\fere-simple\windows\flutter\ephemeral\cpp_client_wrapper\standard_codec.cc">
+    <ClCompile Include="C:\projects\transfery\windows\flutter\ephemeral\cpp_client_wrapper\standard_codec.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\projects\fere-simple\windows\flutter\ephemeral\cpp_client_wrapper\flutter_engine.cc">
+    <ClCompile Include="C:\projects\transfery\windows\flutter\ephemeral\cpp_client_wrapper\flutter_engine.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\projects\fere-simple\windows\flutter\ephemeral\cpp_client_wrapper\flutter_view_controller.cc">
+    <ClCompile Include="C:\projects\transfery\windows\flutter\ephemeral\cpp_client_wrapper\flutter_view_controller.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\projects\fere-simple\windows\flutter\CMakeLists.txt" />
+    <CustomBuild Include="C:\projects\transfery\windows\flutter\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{90798223-80EA-30A7-B963-A36BD98CFC4D}</UniqueIdentifier>
+      <UniqueIdentifier>{5949745C-F679-3C1A-AFDF-435275C4EB54}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{86E265AC-91FC-3B4E-BE6E-9BA172E3932E}</UniqueIdentifier>
+      <UniqueIdentifier>{FCEC9002-C44B-3003-9368-F331110C37CE}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

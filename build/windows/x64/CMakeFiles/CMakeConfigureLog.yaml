@@ -24,9 +24,9 @@ events:
       The output was:
       0
       MSBuild version 17.14.18+a338add32 for .NET Framework
-      Build started 8/15/2025 5:14:32 PM.
+      Build started 8/15/2025 5:51:27 PM.
       
-      Project "C:\\projects\\fere-simple\\build\\windows\\x64\\CMakeFiles\\3.31.6-msvc6\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
+      Project "C:\\projects\\transfery\\build\\windows\\x64\\CMakeFiles\\3.31.6-msvc6\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
         Creating directory "Debug\\".
         Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
@@ -39,7 +39,7 @@ events:
         CMakeCXXCompilerId.cpp
       Link:
         C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
-        CompilerIdCXX.vcxproj -> C:\\projects\\fere-simple\\build\\windows\\x64\\CMakeFiles\\3.31.6-msvc6\\CompilerIdCXX\\CompilerIdCXX.exe
+        CompilerIdCXX.vcxproj -> C:\\projects\\transfery\\build\\windows\\x64\\CMakeFiles\\3.31.6-msvc6\\CompilerIdCXX\\CompilerIdCXX.exe
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
         :VCEnd
@@ -47,13 +47,13 @@ events:
       FinalizeBuildStatus:
         Deleting file "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
         Touching "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
-      Done Building Project "C:\\projects\\fere-simple\\build\\windows\\x64\\CMakeFiles\\3.31.6-msvc6\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets).
+      Done Building Project "C:\\projects\\transfery\\build\\windows\\x64\\CMakeFiles\\3.31.6-msvc6\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets).
       
       Build succeeded.
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:02.12
+      Time Elapsed 00:00:02.04
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -61,7 +61,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
       
       The CXX compiler identification is MSVC, found in:
-        C:/projects/fere-simple/build/windows/x64/CMakeFiles/3.31.6-msvc6/CompilerIdCXX/CompilerIdCXX.exe
+        C:/projects/transfery/build/windows/x64/CMakeFiles/3.31.6-msvc6/CompilerIdCXX/CompilerIdCXX.exe
       
   -
     kind: "try_compile-v1"
@@ -72,8 +72,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/projects/fere-simple/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-f0anee"
-      binary: "C:/projects/fere-simple/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-f0anee"
+      source: "C:/projects/transfery/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-swyod1"
+      binary: "C:/projects/transfery/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-swyod1"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -83,40 +83,40 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/projects/fere-simple/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-f0anee'
+        Change Dir: 'C:/projects/transfery/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-swyod1'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_6f9cf.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Preview/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_fd6ba.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.14.18+a338add32 for .NET Framework
-        Build started 8/15/2025 5:14:35 PM.
+        Build started 8/15/2025 5:51:30 PM.
         
-        Project "C:\\projects\\fere-simple\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-f0anee\\cmTC_6f9cf.vcxproj" on node 1 (default targets).
+        Project "C:\\projects\\transfery\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-swyod1\\cmTC_fd6ba.vcxproj" on node 1 (default targets).
         PrepareForBuild:
-          Creating directory "cmTC_6f9cf.dir\\Debug\\".
+          Creating directory "cmTC_fd6ba.dir\\Debug\\".
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\projects\\fere-simple\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-f0anee\\Debug\\".
-          Creating directory "cmTC_6f9cf.dir\\Debug\\cmTC_6f9cf.tlog\\".
+          Creating directory "C:\\projects\\transfery\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-swyod1\\Debug\\".
+          Creating directory "cmTC_fd6ba.dir\\Debug\\cmTC_fd6ba.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_6f9cf.dir\\Debug\\cmTC_6f9cf.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_6f9cf.dir\\Debug\\cmTC_6f9cf.tlog\\unsuccessfulbuild".
+          Creating "cmTC_fd6ba.dir\\Debug\\cmTC_fd6ba.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_fd6ba.dir\\Debug\\cmTC_fd6ba.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6f9cf.dir\\Debug\\\\" /Fd"cmTC_6f9cf.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_fd6ba.dir\\Debug\\\\" /Fd"cmTC_fd6ba.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.44.35214 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6f9cf.dir\\Debug\\\\" /Fd"cmTC_6f9cf.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_fd6ba.dir\\Debug\\\\" /Fd"cmTC_fd6ba.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\Common7\\IDE\\CommonExtensions\\Microsoft\\CMake\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\projects\\fere-simple\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-f0anee\\Debug\\cmTC_6f9cf.exe" /INCREMENTAL /ILK:"cmTC_6f9cf.dir\\Debug\\cmTC_6f9cf.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/projects/fere-simple/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-f0anee/Debug/cmTC_6f9cf.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/projects/fere-simple/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-f0anee/Debug/cmTC_6f9cf.lib" /MACHINE:X64  /machine:x64 cmTC_6f9cf.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_6f9cf.vcxproj -> C:\\projects\\fere-simple\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-f0anee\\Debug\\cmTC_6f9cf.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\projects\\transfery\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-swyod1\\Debug\\cmTC_fd6ba.exe" /INCREMENTAL /ILK:"cmTC_fd6ba.dir\\Debug\\cmTC_fd6ba.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/projects/transfery/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-swyod1/Debug/cmTC_fd6ba.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/projects/transfery/build/windows/x64/CMakeFiles/CMakeScratch/TryCompile-swyod1/Debug/cmTC_fd6ba.lib" /MACHINE:X64  /machine:x64 cmTC_fd6ba.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_fd6ba.vcxproj -> C:\\projects\\transfery\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-swyod1\\Debug\\cmTC_fd6ba.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_6f9cf.dir\\Debug\\cmTC_6f9cf.tlog\\unsuccessfulbuild".
-          Touching "cmTC_6f9cf.dir\\Debug\\cmTC_6f9cf.tlog\\cmTC_6f9cf.lastbuildstate".
-        Done Building Project "C:\\projects\\fere-simple\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-f0anee\\cmTC_6f9cf.vcxproj" (default targets).
+          Deleting file "cmTC_fd6ba.dir\\Debug\\cmTC_fd6ba.tlog\\unsuccessfulbuild".
+          Touching "cmTC_fd6ba.dir\\Debug\\cmTC_fd6ba.tlog\\cmTC_fd6ba.lastbuildstate".
+        Done Building Project "C:\\projects\\transfery\\build\\windows\\x64\\CMakeFiles\\CMakeScratch\\TryCompile-swyod1\\cmTC_fd6ba.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:01.29
+        Time Elapsed 00:00:01.24
         
       exitCode: 0
   -

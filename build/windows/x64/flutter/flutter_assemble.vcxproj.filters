@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\projects\fere-simple\build\windows\x64\CMakeFiles\9d90db4007d4cf716a3ff53b562016a7\flutter_windows.dll.rule">
+    <CustomBuild Include="C:\projects\transfery\build\windows\x64\CMakeFiles\f40a64b0da3c280476ddd0902d5f6739\flutter_windows.dll.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\projects\fere-simple\build\windows\x64\CMakeFiles\8b6cab51bb092e0b43ce920346bba4f3\flutter_assemble.rule">
+    <CustomBuild Include="C:\projects\transfery\build\windows\x64\CMakeFiles\6d0397e916577621a3518053df5de752\flutter_assemble.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\projects\fere-simple\windows\flutter\CMakeLists.txt" />
+    <CustomBuild Include="C:\projects\transfery\windows\flutter\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\projects\fere-simple\build\windows\x64\flutter\CMakeFiles\flutter_assemble" />
+    <None Include="C:\projects\transfery\build\windows\x64\flutter\CMakeFiles\flutter_assemble" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{90798223-80EA-30A7-B963-A36BD98CFC4D}</UniqueIdentifier>
+      <UniqueIdentifier>{5949745C-F679-3C1A-AFDF-435275C4EB54}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

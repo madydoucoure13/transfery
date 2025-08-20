@@ -1,8 +1,8 @@
-# Install script for directory: C:/projects/fere-simple/windows/flutter
+# Install script for directory: C:/projects/transfery/windows/flutter
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "$<TARGET_FILE_DIR:fere>")
+  set(CMAKE_INSTALL_PREFIX "$<TARGET_FILE_DIR:transfery>")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -35,6 +35,6 @@ endif()
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/projects/fere-simple/build/windows/x64/flutter/install_local_manifest.txt"
+  file(WRITE "C:/projects/transfery/build/windows/x64/flutter/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

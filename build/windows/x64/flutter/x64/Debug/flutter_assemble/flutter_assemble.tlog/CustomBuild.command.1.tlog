@@ -1,6 +1,6 @@
-^C:\PROJECTS\FERE-SIMPLE\BUILD\WINDOWS\X64\CMAKEFILES\9D90DB4007D4CF716A3FF53B562016A7\FLUTTER_WINDOWS.DLL.RULE
+^C:\PROJECTS\TRANSFERY\BUILD\WINDOWS\X64\CMAKEFILES\F40A64B0DA3C280476DDD0902D5F6739\FLUTTER_WINDOWS.DLL.RULE
 setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\flutter PROJECT_DIR=C:\projects\fere-simple FLUTTER_ROOT=C:\flutter FLUTTER_EPHEMERAL_DIR=C:\projects\fere-simple\windows\flutter\ephemeral PROJECT_DIR=C:\projects\fere-simple FLUTTER_TARGET=C:\projects\fere-simple\lib\main.dart DART_DEFINES=RkxVVFRFUl9WRVJTSU9OPTMuMzUuMQ==,RkxVVFRFUl9DSEFOTkVMPXN0YWJsZQ==,RkxVVFRFUl9HSVRfVVJMPWh0dHBzOi8vZ2l0aHViLmNvbS9mbHV0dGVyL2ZsdXR0ZXIuZ2l0,RkxVVFRFUl9GUkFNRVdPUktfUkVWSVNJT049MjBmODI3NDkzOQ==,RkxVVFRFUl9FTkdJTkVfUkVWSVNJT049MWU5YTgxMWJmOA==,RkxVVFRFUl9EQVJUX1ZFUlNJT049My45LjA= DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false PACKAGE_CONFIG=C:\projects\fere-simple\.dart_tool\package_config.json C:/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
+"C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\flutter PROJECT_DIR=C:\projects\transfery FLUTTER_ROOT=C:\flutter FLUTTER_EPHEMERAL_DIR=C:\projects\transfery\windows\flutter\ephemeral PROJECT_DIR=C:\projects\transfery FLUTTER_TARGET=C:\projects\transfery\lib\main.dart DART_DEFINES=RkxVVFRFUl9WRVJTSU9OPTMuMzUuMQ==,RkxVVFRFUl9DSEFOTkVMPXN0YWJsZQ==,RkxVVFRFUl9HSVRfVVJMPWh0dHBzOi8vZ2l0aHViLmNvbS9mbHV0dGVyL2ZsdXR0ZXIuZ2l0,RkxVVFRFUl9GUkFNRVdPUktfUkVWSVNJT049MjBmODI3NDkzOQ==,RkxVVFRFUl9FTkdJTkVfUkVWSVNJT049MWU5YTgxMWJmOA==,RkxVVFRFUl9EQVJUX1ZFUlNJT049My45LjA= DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false PACKAGE_CONFIG=C:\projects\transfery\.dart_tool\package_config.json C:/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -8,7 +8,7 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\PROJECTS\FERE-SIMPLE\BUILD\WINDOWS\X64\CMAKEFILES\8B6CAB51BB092E0B43CE920346BBA4F3\FLUTTER_ASSEMBLE.RULE
+^C:\PROJECTS\TRANSFERY\BUILD\WINDOWS\X64\CMAKEFILES\6D0397E916577621A3518053DF5DE752\FLUTTER_ASSEMBLE.RULE
 setlocal
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -16,9 +16,9 @@ endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd
-^C:\PROJECTS\FERE-SIMPLE\WINDOWS\FLUTTER\CMAKELISTS.TXT
+^C:\PROJECTS\TRANSFERY\WINDOWS\FLUTTER\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/projects/fere-simple/windows -BC:/projects/fere-simple/build/windows/x64 --check-stamp-file C:/projects/fere-simple/build/windows/x64/flutter/CMakeFiles/generate.stamp
+"C:\Program Files\Microsoft Visual Studio\2022\Preview\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/projects/transfery/windows -BC:/projects/transfery/build/windows/x64 --check-stamp-file C:/projects/transfery/build/windows/x64/flutter/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
