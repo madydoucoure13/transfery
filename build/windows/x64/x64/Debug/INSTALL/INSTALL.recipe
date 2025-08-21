@@ -8,6 +8,9 @@
       <FullPath>C:\projects\transfery\build\windows\x64\flutter\x64\Debug\flutter_assemble</FullPath>
     </ProjectOutput>
     <ProjectOutput>
+      <FullPath>C:\projects\transfery\build\windows\x64\plugins\printing\Debug\printing_plugin.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
       <FullPath>C:\projects\transfery\build\windows\x64\runner\Debug\transfery.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>

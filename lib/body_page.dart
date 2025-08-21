@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart';
+import 'package:pdf/pdf.dart';
 import 'package:transfery/compte_details_page.dart';
 import 'package:transfery/transferts_model.dart';
 import 'package:transfery/database_helper.dart';
@@ -6,6 +7,8 @@ import 'package:transfery/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:pdf/widgets.dart' as pw;
+import 'package:printing/printing.dart';
 
 class BodyPage extends StatefulWidget {
   bool addTransfertVisibility = true;
@@ -380,6 +383,13 @@ class _BodyPageState extends State<BodyPage> {
                             text: transfertEdit.id != null
                                 ? "Modifier"
                                 : "Enregistrer"),
+                        CustomButton(
+                            onTap: () {
+                              // _printTransferts();
+                              _printTransfertDetail(transfertEdit);
+                              // _createPdf();
+                            },
+                            text: "Imprimer")
                       ],
                     ),
                   )
@@ -389,6 +399,134 @@ class _BodyPageState extends State<BodyPage> {
           ),
         ),
       ],
+    );
+  }
+
+  void _createPdf(Transfert t) {
+    final doc = pw.Document();
+    doc.addPage(pw.Page(
+      build: (context) {
+        return pw.Center();
+      },
+    ));
+  }
+
+  Future<void> _printTransfertDetail(Transfert t) async {
+    final pdf = pw.Document();
+    final dateFormat = DateFormat('dd-MM-yyyy HH:mm');
+    final formatter = NumberFormat();
+    final pageFormat =
+        const PdfPageFormat(136, double.infinity, marginAll: 4); // largeur 48mm
+
+    pdf.addPage(
+      pw.Page(
+        pageFormat: pageFormat,
+        build: (pw.Context context) {
+          return pw.Container(
+            child: pw.Column(
+              crossAxisAlignment: pw.CrossAxisAlignment.start,
+              children: [
+                pw.Center(
+                  child: pw.Text(
+                    "Reçu de transfert",
+                    style: pw.TextStyle(
+                      fontSize: 12,
+                      fontWeight: pw.FontWeight.bold,
+                    ),
+                  ),
+                ),
+                pw.SizedBox(height: 8),
+                pw.Divider(),
+                _buildDetailRow("ID", t.id.toString()),
+                _buildDetailRow("Code", t.code),
+                _buildDetailRow("name", t.nom),
+                _buildDetailRow("Rate", t.devise),
+                _buildDetailRow(
+                    "Montant", "${formatter.format(t.montant * (-1))}"),
+                _buildDetailRow(
+                    "Montant en dirhams", //.toString()
+                    "${formatter.format(t.montant * (-1))}"),
+                _buildDetailRow("Date", dateFormat.format(t.date) ?? ""),
+                pw.Divider(),
+                pw.SizedBox(height: 8),
+                pw.Center(
+                  child: pw.Text(
+                    "Merci pour votre confiance",
+                    style: pw.TextStyle(
+                        fontSize: 8, fontStyle: pw.FontStyle.italic),
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+
+    await Printing.layoutPdf(
+      onLayout: (format) async => pdf.save(),
+    );
+  }
+
+  /// Ligne formatée pour 48mm
+  pw.Widget _buildDetailRow(String label, String value) {
+    return pw.Padding(
+      padding: const pw.EdgeInsets.symmetric(vertical: 2),
+      child: pw.Row(
+        crossAxisAlignment: pw.CrossAxisAlignment.start,
+        children: [
+          pw.Expanded(
+            flex: 3,
+            child: pw.Text(
+              "$label:",
+              style: pw.TextStyle(fontSize: 8, fontWeight: pw.FontWeight.bold),
+            ),
+          ),
+          pw.Expanded(
+            flex: 5,
+            child: pw.Text(
+              value,
+              style: pw.TextStyle(fontSize: 8),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _printTransferts() async {
+    final pdf = pw.Document();
+
+    pdf.addPage(
+      pw.Page(
+        build: (pw.Context context) {
+          return pw.Column(
+            crossAxisAlignment: pw.CrossAxisAlignment.start,
+            children: [
+              pw.Text("Liste des transferts",
+                  style: pw.TextStyle(
+                      fontSize: 20, fontWeight: pw.FontWeight.bold)),
+              pw.SizedBox(height: 20),
+              pw.Table.fromTextArray(
+                headers: ["ID", "Code", "Nom", "Devise", "Montant"],
+                data: transferts
+                    .map((t) => [
+                          t.id.toString(),
+                          t.code,
+                          t.nom,
+                          t.devise,
+                          t.montant.toString()
+                        ])
+                    .toList(),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+
+    await Printing.layoutPdf(
+      onLayout: (format) async => pdf.save(),
     );
   }
 }

@@ -1,61 +1,93 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class EmailOtpAuthPage extends StatefulWidget {
   const EmailOtpAuthPage({Key? key}) : super(key: key);
 
   @override
-  _EmailOtpAuthPageState createState() => _EmailOtpAuthPageState();
+  State<EmailOtpAuthPage> createState() => _EmailOtpAuthPageState();
 }
 
 class _EmailOtpAuthPageState extends State<EmailOtpAuthPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _otpController = TextEditingController();
 
-  String? _generatedOtp;
   bool _otpSent = false;
+  String? _email;
 
-  // Générer un OTP aléatoire à 6 chiffres
-  String _generateOtp() {
-    final random = Random();
-    return (100000 + random.nextInt(900000)).toString();
-  }
-
-  // Simuler l'envoi de l'OTP par email
-  void _sendOtp() {
+  /// === ENVOYER OTP PAR EMAIL ===
+  Future<void> _sendOtp() async {
     final email = _emailController.text.trim();
-    if (email.isEmpty || !email.contains('@')) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text("Email invalide")));
+    if (!email.contains("@")) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Email invalide")),
+      );
       return;
     }
 
-    _generatedOtp = _generateOtp();
-    setState(() {
-      _otpSent = true;
-    });
+    try {
+      var response = await http.post(
+        Uri.parse("https://ton-serveur.com/send-otp.php"),
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({"email": email}),
+      );
 
-    // Dans une vraie app, ici tu enverrais l'OTP via backend / email
-    print("OTP envoyé à $email : $_generatedOtp");
-    ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("OTP envoyé à votre email")));
+      if (response.statusCode == 200) {
+        setState(() {
+          _otpSent = true;
+          _email = email;
+        });
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("OTP envoyé par email 📧")),
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Erreur envoi OTP")),
+        );
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Erreur réseau")),
+      );
+    }
   }
 
-  void _verifyOtp() {
-    if (_otpController.text.trim() == _generatedOtp) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text("OTP correct !")));
-      // Naviguer vers la page suivante
-    } else {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text("OTP incorrect")));
+  /// === VÉRIFIER OTP ===
+  Future<void> _verifyOtp() async {
+    if (_email == null) return;
+
+    try {
+      var response = await http.post(
+        Uri.parse("https://ton-serveur.com/verify-otp.php"),
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({"email": _email, "otp": _otpController.text.trim()}),
+      );
+
+      var data = jsonDecode(response.body);
+
+      if (data["success"] == true) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("Connexion réussie ✅")),
+        );
+        // Ici c'est comme Firebase: tu stockes un token JWT en local
+        // puis tu navigues vers HomePage
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(data["message"] ?? "OTP invalide ❌")),
+        );
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Erreur serveur")),
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Authentification par OTP")),
+      appBar: AppBar(title: const Text("Auth OTP par Email")),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -64,11 +96,11 @@ class _EmailOtpAuthPageState extends State<EmailOtpAuthPage> {
             if (!_otpSent) ...[
               TextField(
                 controller: _emailController,
-                keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(
                   labelText: "Email",
                   border: OutlineInputBorder(),
                 ),
+                keyboardType: TextInputType.emailAddress,
               ),
               const SizedBox(height: 20),
               ElevatedButton(
@@ -76,18 +108,15 @@ class _EmailOtpAuthPageState extends State<EmailOtpAuthPage> {
                 child: const Text("Envoyer OTP"),
               ),
             ] else ...[
-              Text(
-                "Un code OTP a été envoyé à ${_emailController.text}",
-                textAlign: TextAlign.center,
-              ),
+              Text("Un code a été envoyé à $_email"),
               const SizedBox(height: 20),
               TextField(
                 controller: _otpController,
-                keyboardType: TextInputType.number,
                 decoration: const InputDecoration(
-                  labelText: "Entrez le OTP",
+                  labelText: "Entrez OTP",
                   border: OutlineInputBorder(),
                 ),
+                keyboardType: TextInputType.number,
               ),
               const SizedBox(height: 20),
               ElevatedButton(

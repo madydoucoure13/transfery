@@ -149,6 +149,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{2477036F-0EC2-39AF-BCA2-555E050BC6D6}</Project>
       <Name>flutter_wrapper_plugin</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\projects\transfery\build\windows\x64\plugins\printing\printing_plugin.vcxproj">
+      <Project>{BEC7042B-E2FB-3CBD-A0D9-8B64180F008E}</Project>
+      <Name>printing_plugin</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\projects\transfery\build\windows\x64\runner\transfery.vcxproj">
       <Project>{8C51F0DA-3098-345A-BF08-2F9D24ED9CBA}</Project>
       <Name>transfery</Name>

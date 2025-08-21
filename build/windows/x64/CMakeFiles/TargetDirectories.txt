@@ -8,3 +8,6 @@ C:/projects/transfery/build/windows/x64/flutter/CMakeFiles/INSTALL.dir
 C:/projects/transfery/build/windows/x64/runner/CMakeFiles/transfery.dir
 C:/projects/transfery/build/windows/x64/runner/CMakeFiles/INSTALL.dir
 C:/projects/transfery/build/windows/x64/runner/CMakeFiles/ALL_BUILD.dir
+C:/projects/transfery/build/windows/x64/plugins/printing/CMakeFiles/printing_plugin.dir
+C:/projects/transfery/build/windows/x64/plugins/printing/CMakeFiles/INSTALL.dir
+C:/projects/transfery/build/windows/x64/plugins/printing/CMakeFiles/ALL_BUILD.dir
