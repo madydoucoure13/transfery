@@ -186,11 +186,18 @@ class _BodyPageState extends State<BodyPage> {
                                           compteName: transfert.nom),
                                     ),
                                   );
-                                  // Afficher la boîte de confirmation
                                 },
                               )
                             : Row(
                                 children: [
+                                  IconButton(
+                                    icon: const Icon(Icons.print,
+                                        color: Colors.blue),
+                                    onPressed: () {
+                                      _printTransfertDetail(
+                                          transfert); // Afficher la boîte de confirmation
+                                    },
+                                  ),
                                   IconButton(
                                     icon: const Icon(Icons.edit),
                                     onPressed: () {
@@ -383,13 +390,16 @@ class _BodyPageState extends State<BodyPage> {
                             text: transfertEdit.id != null
                                 ? "Modifier"
                                 : "Enregistrer"),
-                        CustomButton(
-                            onTap: () {
-                              // _printTransferts();
-                              _printTransfertDetail(transfertEdit);
-                              // _createPdf();
-                            },
-                            text: "Imprimer")
+                        Visibility(
+                          visible: transfertEdit.id != null,
+                          child: CustomButton(
+                              onTap: () {
+                                // _printTransferts();
+                                _printTransfertDetail(transfertEdit);
+                                // _createPdf();
+                              },
+                              text: "Imprimer"),
+                        )
                       ],
                     ),
                   )
@@ -411,7 +421,7 @@ class _BodyPageState extends State<BodyPage> {
     ));
   }
 
-  Future<void> _printTransfertDetail(Transfert t) async {
+  _printTransfertDetail(Transfert t) async {
     final pdf = pw.Document();
     final dateFormat = DateFormat('dd-MM-yyyy HH:mm');
     final formatter = NumberFormat();
@@ -440,12 +450,14 @@ class _BodyPageState extends State<BodyPage> {
                 _buildDetailRow("ID", t.id.toString()),
                 _buildDetailRow("Code", t.code),
                 _buildDetailRow("name", t.nom),
+                _buildDetailRow(
+                    "beneficiary's name", t.customerName ?? "Undefined"),
                 _buildDetailRow("Rate", t.devise),
                 _buildDetailRow(
                     "Montant", "${formatter.format(t.montant * (-1))}"),
                 _buildDetailRow(
                     "Montant en dirhams", //.toString()
-                    "${formatter.format(t.montant * (-1))}"),
+                    "${formatter.format(t.rate * t.montant * (-1))}"),
                 _buildDetailRow("Date", dateFormat.format(t.date) ?? ""),
                 pw.Divider(),
                 pw.SizedBox(height: 8),
@@ -476,14 +488,14 @@ class _BodyPageState extends State<BodyPage> {
         crossAxisAlignment: pw.CrossAxisAlignment.start,
         children: [
           pw.Expanded(
-            flex: 3,
+            // flex: 3,
             child: pw.Text(
               "$label:",
               style: pw.TextStyle(fontSize: 8, fontWeight: pw.FontWeight.bold),
             ),
           ),
           pw.Expanded(
-            flex: 5,
+            // flex: 5,
             child: pw.Text(
               value,
               style: pw.TextStyle(fontSize: 8),

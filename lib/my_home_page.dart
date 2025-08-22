@@ -1,6 +1,7 @@
 import 'package:transfery/body_page.dart';
 import 'package:transfery/database_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:transfery/infos_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -31,6 +32,16 @@ class _HomePageState extends State<HomePage>
       appBar: AppBar(
         // title: const Text('DOUCOURE'),
         actions: [
+          TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => InfosPage(),
+                  ),
+                );
+              },
+              child: const Text("Infos")),
           TextButton(
               onPressed: () {
                 final dbHelper = DatabaseHelper.instance;
