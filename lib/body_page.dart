@@ -3,6 +3,7 @@ import 'package:pdf/pdf.dart';
 import 'package:transfery/compte_details_page.dart';
 import 'package:transfery/transferts_model.dart';
 import 'package:transfery/database_helper.dart';
+import 'package:transfery/user_model.dart';
 import 'package:transfery/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -40,6 +41,7 @@ class _BodyPageState extends State<BodyPage> {
   final FocusNode _customerFocusNode = FocusNode();
   final FocusNode _quantiteFocusNode = FocusNode();
   final FocusNode _prixFocusNode = FocusNode();
+  Entreprise? entreprise;
   String _montant = "";
   List<Transfert> transferts = [];
   Transfert transfertEdit =
@@ -48,6 +50,10 @@ class _BodyPageState extends State<BodyPage> {
 
   Future<void> _loadTransferts() async {
     _prefs = await SharedPreferences.getInstance();
+    final data = _prefs.getString("entreprise");
+    if (data != null) {
+      entreprise = Entreprise.fromJson(data);
+    }
 
     _prefs.setString("name", "Bamady");
     final dbHelper = DatabaseHelper.instance;
@@ -438,7 +444,7 @@ class _BodyPageState extends State<BodyPage> {
               children: [
                 pw.Center(
                   child: pw.Text(
-                    "Reçu de transfert",
+                    "Reçu de paiement",
                     style: pw.TextStyle(
                       fontSize: 12,
                       fontWeight: pw.FontWeight.bold,
@@ -449,7 +455,7 @@ class _BodyPageState extends State<BodyPage> {
                 pw.Divider(),
                 _buildDetailRow("ID", t.id.toString()),
                 _buildDetailRow("Code", t.code),
-                _buildDetailRow("name", t.nom),
+                _buildDetailRow("Compte name", t.nom),
                 _buildDetailRow(
                     "beneficiary's name", t.customerName ?? "Undefined"),
                 _buildDetailRow("Rate", t.devise),
@@ -460,6 +466,22 @@ class _BodyPageState extends State<BodyPage> {
                     "${formatter.format(t.rate * t.montant * (-1))}"),
                 _buildDetailRow("Date", dateFormat.format(t.date) ?? ""),
                 pw.Divider(),
+                pw.SizedBox(height: 5),
+                pw.Center(
+                  child: pw.Text(
+                    "${entreprise?.etsName ?? ''}",
+                    style: pw.TextStyle(
+                        fontSize: 8, fontStyle: pw.FontStyle.italic),
+                  ),
+                ),
+                pw.SizedBox(height: 5),
+                pw.Center(
+                  child: pw.Text(
+                    "${entreprise?.email ?? ''} ${entreprise?.phoneNumber}",
+                    style: pw.TextStyle(
+                        fontSize: 8, fontStyle: pw.FontStyle.italic),
+                  ),
+                ),
                 pw.SizedBox(height: 8),
                 pw.Center(
                   child: pw.Text(
